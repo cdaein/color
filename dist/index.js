@@ -1,10 +1,6 @@
 "use strict";
-/**
- * default data type is array for any color.
- *
- * */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.hsb2rgb = exports.hsv2rgb = void 0;
+exports.hex2rgb = exports.rgb2hsv = exports.hsb2rgb = exports.hsv2rgb = void 0;
 const hsvrgb = require("hsv2rgb");
 /**
  * convert normalized HSB color to RGB
@@ -12,6 +8,7 @@ const hsvrgb = require("hsv2rgb");
  * @param s normalized saturation 0..1 (clamped)
  * @param v normalized brightness 0..1 (clamped)
  * @param a alpha 0..1 passed-through
+ * @returns RGB color array in 0..255
  */
 function hsv2rgb(hOrArr, s, v, a) {
     if (s !== undefined && v !== undefined && a !== undefined) {
@@ -37,4 +34,12 @@ function hsv2rgb(hOrArr, s, v, a) {
 }
 exports.hsv2rgb = hsv2rgb;
 exports.hsb2rgb = hsv2rgb;
+function rgb2hsv(rOrArr, g, b, a) {
+    return [];
+}
+exports.rgb2hsv = rgb2hsv;
+function hex2rgb() {
+    //
+}
+exports.hex2rgb = hex2rgb;
 //# sourceMappingURL=index.js.map
