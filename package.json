@@ -27,5 +27,13 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdaein/color.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cdaein/color/issues"
+  },
+  "homepage": "https://github.com/cdaein/color#readme"
 }
