@@ -1,5 +1,10 @@
 # Changelog
 
+## `0.2.0`
+
+- added `rgb2hsv()` and `hex2rgb()`
+- a few issues where converted values are not guaranteed to work in reverse.
+
 ## `0.1.1`
 
 updated `hsv2rgb()` JSDoc
