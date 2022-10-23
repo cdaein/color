@@ -22,8 +22,35 @@ export declare function hsv2rgb(h: number, s: number, v: number): number[];
  */
 export declare function hsv2rgb(h: number, s: number, v: number, a: number): number[];
 export declare const hsb2rgb: typeof hsv2rgb;
+/**
+ * convert RGB color to normalized HSV
+ * @param arr [r, g, b] or [r, g, b, a]
+ * @returns HSV color array[3 or 4] in 0..1
+ */
 export declare function rgb2hsv(arr: number[]): number[];
+/**
+ * convert RGB color to normalized HSV
+ * @param r red 0..255
+ * @param g green 0..255
+ * @param b blue 0..255
+ * @returns HSV color array[3] in 0..1
+ */
 export declare function rgb2hsv(r: number, g: number, b: number): number[];
+/**
+ * convert RGB color to normalized HSV
+ * @param r red 0..255
+ * @param g green 0..255
+ * @param b blue 0..255
+ * @param a alpha 0..1
+ * @returns HSV color array[4] in 0..1
+ */
 export declare function rgb2hsv(r: number, g: number, b: number, a: number): number[];
-export declare function hex2rgb(): void;
+/**
+ * converts hexadecimal color to RGB/RGBA.
+ *
+ * It also supports shorthand hex color with alpha - ex. #f0ac (last char is alpha)
+ * @param hex hex color string. ex. `#f0a`, `#ccfa`, `#ff00cc` or `#aacc99ff`
+ * @returns [r, g, b] or [r, g, b, a]
+ */
+export declare function hex2rgb(hex: string): number[];
 //# sourceMappingURL=index.d.ts.map

@@ -16,7 +16,8 @@
   "author": "Daeinc",
   "license": "MIT",
   "dependencies": {
-    "hsv2rgb": "^1.1.0"
+    "hsv2rgb": "^1.1.0",
+    "rgb-hsv": "^1.0.0"
   },
   "devDependencies": {
     "color-normalize": "^1.5.2",
