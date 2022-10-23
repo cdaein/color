@@ -1,8 +1,3 @@
-/**
- * default data type is array for any color.
- *
- * */
-
 const hsvrgb = require("hsv2rgb");
 
 // REVIEW: https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads
