@@ -1,5 +1,7 @@
 # Changelog
 
+- `hsv2rgb()` can now take a single argument for grayscale value (0..1)
+
 ## `0.2.0`
 
 - added `rgb2hsv()` and `hex2rgb()`

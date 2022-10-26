@@ -5,31 +5,37 @@ const hsvrgb = require("hsv2rgb");
 const rgbhsv = require("rgb-hsv");
 /**
  * convert normalized HSB color to RGB
- * @param hOrArr normalized hue 0..1 (wrapped)
+ * @param hOrValOrArr normalized hue 0..1 (wrapped)
  * @param s normalized saturation 0..1 (clamped)
  * @param v normalized brightness 0..1 (clamped)
  * @param a alpha 0..1 passed-through
  * @returns RGB color array in 0..255
  */
-function hsv2rgb(hOrArr, s, v, a) {
+function hsv2rgb(hOrValOrArr, s, v, a) {
     if (s !== undefined && v !== undefined && a !== undefined) {
         // (h, s, v, a)
-        return [...hsvrgb(hOrArr * 360, s, v), a];
+        return [...hsvrgb(hOrValOrArr * 360, s, v), a];
     }
     else if (s !== undefined && v !== undefined) {
         // (h, s, v)
-        return [...hsvrgb(hOrArr * 360, s, v)];
+        return [...hsvrgb(hOrValOrArr * 360, s, v)];
     }
     else if (s === undefined) {
-        hOrArr[0] *= 360;
-        if (hOrArr.length === 3) {
-            // ([h, s, v])
-            return [...hsvrgb(...hOrArr)];
+        if (Array.isArray(hOrValOrArr)) {
+            hOrValOrArr[0] *= 360;
+            if (hOrValOrArr.length === 3) {
+                // ([h, s, v])
+                return [...hsvrgb(...hOrValOrArr)];
+            }
+            else if (hOrValOrArr.length === 4) {
+                // ([h, s, v, a])
+                // hsvrgb's 4th argument is NOT alpha but out array
+                return [...hsvrgb(...hOrValOrArr.slice(0, 3)), hOrValOrArr[3]];
+            }
         }
-        else if (hOrArr.length === 4) {
-            // ([h, s, v, a])
-            // hsvrgb's 4th argument is NOT alpha but out array
-            return [...hsvrgb(...hOrArr.slice(0, 3)), hOrArr[3]];
+        else {
+            // a single argument
+            return [...hsvrgb(0, 0, hOrValOrArr)];
         }
     }
     throw new Error("hsv2rgb(): doesn't support the type or length of arguments provided");

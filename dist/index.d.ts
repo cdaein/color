@@ -1,4 +1,10 @@
 /**
+ * convert normalized grayscale value to RGB
+ * @param val grayscale value 0..1
+ * @returns RGB color array[3] in 0..255
+ */
+export declare function hsv2rgb(val: number): number[];
+/**
  * convert normalized HSB color to RGB
  * @param arr [h, s, v] or [h, s, v, a]
  * @returns RGB color array[3 or 4] in 0..255

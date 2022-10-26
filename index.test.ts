@@ -10,6 +10,11 @@ describe("hsv2rgb()", () => {
       "doesn't support the type or length of arguments provided"
     );
   });
+  test("handles a single argument of number (grayscale value)", () => {
+    expect(hsv2rgb(0.5)).toEqual([128, 128, 128]);
+    expect(hsv2rgb(0.0)).toEqual([0, 0, 0]);
+    expect(hsv2rgb(1.0)).toEqual([255, 255, 255]);
+  });
   test("handles single argument of array[h, s, v]", () => {
     expect(hsv2rgb([0, 0, 1])).toEqual([255, 255, 255]);
     expect(hsv2rgb([0, 1, 1])).toEqual([255, 0, 0]);
