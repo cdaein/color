@@ -49,14 +49,15 @@ export function hsv2rgb(hOrValOrArr: any, s?: number, v?: number, a?: number) {
     return [...hsvrgb(hOrValOrArr * 360, s, v)];
   } else if (s === undefined) {
     if (Array.isArray(hOrValOrArr)) {
-      hOrValOrArr[0] *= 360;
-      if (hOrValOrArr.length === 3) {
+      const arr = [...hOrValOrArr];
+      arr[0] *= 360;
+      if (arr.length === 3) {
         // ([h, s, v])
-        return [...hsvrgb(...hOrValOrArr)];
-      } else if (hOrValOrArr.length === 4) {
+        return [...hsvrgb(...arr)];
+      } else if (arr.length === 4) {
         // ([h, s, v, a])
         // hsvrgb's 4th argument is NOT alpha but out array
-        return [...hsvrgb(...hOrValOrArr.slice(0, 3)), hOrValOrArr[3]];
+        return [...hsvrgb(...arr.slice(0, 3)), arr[3]];
       }
     } else {
       // a single argument
