@@ -1,6 +1,6 @@
 {
   "name": "@daeinc/color",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Color utilities",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
