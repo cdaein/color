@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.hex2rgb = exports.rgb2hsv = exports.hsb2rgb = exports.hsv2rgb = void 0;
 const hsvrgb = require("hsv2rgb");
 const rgbhsv = require("rgb-hsv");
 /**
@@ -11,7 +8,7 @@ const rgbhsv = require("rgb-hsv");
  * @param a alpha 0..1 passed-through
  * @returns RGB color array in 0..255
  */
-function hsv2rgb(hOrValOrArr, s, v, a) {
+export function hsv2rgb(hOrValOrArr, s, v, a) {
     if (s !== undefined && v !== undefined && a !== undefined) {
         // (h, s, v, a)
         return [...hsvrgb(hOrValOrArr * 360, s, v), a];
@@ -41,8 +38,7 @@ function hsv2rgb(hOrValOrArr, s, v, a) {
     }
     throw new Error("hsv2rgb(): doesn't support the type or length of arguments provided");
 }
-exports.hsv2rgb = hsv2rgb;
-exports.hsb2rgb = hsv2rgb;
+export const hsb2rgb = hsv2rgb;
 /**
  * convert RGB color to normalized HSV
  * @param rOrArr red 0..255
@@ -51,7 +47,7 @@ exports.hsb2rgb = hsv2rgb;
  * @param a alpha 0..1
  * @returns HSV color array in 0..1
  */
-function rgb2hsv(rOrArr, g, b, a) {
+export function rgb2hsv(rOrArr, g, b, a) {
     if (g !== undefined && b !== undefined && a !== undefined) {
         // (r, g, b, a)
         const v = rgbhsv(rOrArr, g, b);
@@ -76,7 +72,6 @@ function rgb2hsv(rOrArr, g, b, a) {
     }
     throw new Error("rgb2hsv(): doesn't support the type or length of arguments provided");
 }
-exports.rgb2hsv = rgb2hsv;
 /**
  * converts hexadecimal color to RGB/RGBA.
  *
@@ -84,7 +79,7 @@ exports.rgb2hsv = rgb2hsv;
  * @param hex hex color string. ex. `#f0a`, `#ccfa`, `#ff00cc` or `#aacc99ff`
  * @returns [r, g, b] or [r, g, b, a]
  */
-function hex2rgb(hex) {
+export function hex2rgb(hex) {
     let rgb;
     if (hex.length === 7 || hex.length === 9) {
         // #rrggbb or #rrbbggaa
@@ -112,5 +107,4 @@ function hex2rgb(hex) {
     }
     throw new Error("hex2rgb(): doesn't support the length or value of string argument provided");
 }
-exports.hex2rgb = hex2rgb;
 //# sourceMappingURL=index.js.map

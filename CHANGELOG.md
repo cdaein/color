@@ -1,5 +1,9 @@
 # Changelog
 
+## `0.3.x`
+
+- Working on converting to ESM syntax
+
 ## `0.2.2`
 
 - Fixed `hsv2rgb()` array hue going infinity because of in-place array mutation
